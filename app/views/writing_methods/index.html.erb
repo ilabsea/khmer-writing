@@ -1,0 +1,27 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'View grade list', grades_path %></li>
+  <li><%= link_to 'New grade', new_grade_path %></li>
+  <li class="active"><%= link_to 'View method list', writing_methods_path %></li>
+  <li><%= link_to 'New method', new_writing_method_path %></li>
+
+</ul>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Name</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @methods.each do |method| %>
+    <tr>
+      <td><%= method.name %></td>
+      <td><%= method.icon %></td>
+      <td><%= link_to 'Show', writing_method_path(method) %></td>
+      <td><%= link_to 'Edit', edit_writing_method_path(method) %></td>
+      <td><%= link_to 'Destroy', writing_method_path(method),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    </tr>
+  <% end %>
+</table>

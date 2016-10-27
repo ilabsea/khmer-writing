@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'View grade list', grades_path %></li>
+  <li><%= link_to 'New grade', new_grade_path %></li>
+  <li><%= link_to 'View method list', writing_methods_path %></li>
+  <li><%= link_to 'New method', new_writing_method_path %></li>
+
+</ul>
+
+<h1> Show Lesson </h1>
+<table class="table table-bordered table-hover">
+  <tr>
+    <td><%= @lesson.name %></td>
+    <td><%= link_to 'Edit', edit_grade_lesson_path(@grade, @lesson) %></td>
+    <td><%= link_to 'Destroy', grade_lesson_path(@grade, @lesson),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</table>
+
+
+<h2>Contents</h2>
+<ul>
+  <% @methods.each do |method| %>
+    <li><%= link_to method.name, grade_lesson_writing_method_contents_path(@grade, @lesson, method.id) %></li>
+  <% end %>
+</ul>

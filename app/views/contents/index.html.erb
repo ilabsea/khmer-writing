@@ -1,0 +1,29 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'View grade list', grades_path %></li>
+  <li><%= link_to 'New grade', new_grade_path %></li>
+  <li><%= link_to 'View method list', writing_methods_path %></li>
+  <li><%= link_to 'New method', new_writing_method_path %></li>
+
+</ul>
+
+<h1> <%= @lesson.name %> </h1>
+<h3> <%= @method.name %> </h3>
+
+<h2>Contents</h2>
+
+<div style='float: right'>
+  <%= button_to('New Content', new_grade_lesson_writing_method_content_path(@grade, @lesson, @method), :method => :get, :class => 'btn btn-large btn-primary') %>
+</div>
+
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Content</th>
+    <th>Content in khmer</th>
+    <th colspan="2"></th>
+  </tr>
+  <% @contents.each do |content| %>
+    <%= render content %>
+  <% end %>
+</table>

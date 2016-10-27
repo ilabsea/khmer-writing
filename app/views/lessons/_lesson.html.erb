@@ -1,0 +1,11 @@
+
+<tr>
+    <td><%= lesson.code %></td>
+    <td><%= lesson.name %></td>
+    <td><%= lesson.khmer_numeric %></td>
+    <td><%= link_to 'Show', grade_lesson_path(@grade, lesson) %></td>
+    <td><%= link_to 'Edit', edit_grade_lesson_path(@grade, lesson) %></td>
+    <td><%= link_to 'Destroy', grade_lesson_path(@grade, lesson),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+  </tr>

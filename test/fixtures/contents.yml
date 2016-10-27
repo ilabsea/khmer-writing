@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  string: MyString
+  writing_method_id: 
+  lesson_id: 
+
+two:
+  content: MyString
+  string: MyString
+  writing_method_id: 
+  lesson_id: 
