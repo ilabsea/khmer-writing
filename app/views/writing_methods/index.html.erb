@@ -9,12 +9,15 @@
 <table class="table table-bordered table-hover">
   <tr>
     <th>Name</th>
+    <th>Code</th>
+    <th>Icon</th>
     <th colspan="3"></th>
   </tr>
 
   <% @methods.each do |method| %>
     <tr>
       <td><%= method.name %></td>
+      <td><%= method.code %></td>
       <td><%= method.icon %></td>
       <td><%= link_to 'Show', writing_method_path(method) %></td>
       <td><%= link_to 'Edit', edit_writing_method_path(method) %></td>

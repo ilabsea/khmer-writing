@@ -41,6 +41,6 @@ class WritingMethodsController < ApplicationController
   private
 
   def methods_params
-    params.require(:writing_method).permit(:name, :icon)
+    params.require(:writing_method).permit(:name, :code, :icon)
   end
 end

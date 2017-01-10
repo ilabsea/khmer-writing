@@ -6,6 +6,8 @@
 
 </ul>
 
+<%= link_to('Back', 'javascript:history.go(-1);', :class => 'btn btn-large btn-primary') %>
+
 <h1> Show Lesson </h1>
 <table class="table table-bordered table-hover">
   <tr>
@@ -21,6 +23,6 @@
 <h2>Contents</h2>
 <ul>
   <% @methods.each do |method| %>
-    <li><%= link_to method.name, grade_lesson_writing_method_contents_path(@grade, @lesson, method.id) %></li>
+    <li><%= link_to method.name, lesson_contents_path(@lesson, :writing_method_id => method.id) %></li>
   <% end %>
 </ul>

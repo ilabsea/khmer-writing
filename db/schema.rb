@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020043454) do
+ActiveRecord::Schema.define(version: 20161130085550) do
 
   create_table "contents", force: true do |t|
     t.string   "content"
-    t.string   "string"
     t.integer  "writing_method_id"
     t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "content_in_khmer"
+    t.string   "clue"
   end
 
   add_index "contents", ["lesson_id"], name: "index_contents_on_lesson_id"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20161020043454) do
 
   create_table "lessons", force: true do |t|
     t.string   "name"
-    t.string   "string"
     t.integer  "grade_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,10 +46,10 @@ ActiveRecord::Schema.define(version: 20161020043454) do
 
   create_table "writing_methods", force: true do |t|
     t.string   "name"
-    t.string   "string"
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "code"
   end
 
 end

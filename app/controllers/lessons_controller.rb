@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+
   def new
     @grade = Grade.find(params[:grade_id])
     @lesson = @grade.lessons.build

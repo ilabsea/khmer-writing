@@ -2,8 +2,9 @@
     <td><%= content.id %></td>
     <td><%= content.content %></td>
     <td><%= content.content_in_khmer %></td>
-    <td><%= link_to 'Edit', edit_grade_lesson_writing_method_content_path(@grade, @lesson, @method, content) %></td>
-    <td><%= link_to 'Destroy', grade_lesson_writing_method_content_path(@grade, @lesson, @method, content),
+    <td><%= content.clue %></td>
+    <td><%= link_to 'Edit', edit_lesson_content_path(@lesson, content) %></td>
+    <td><%= link_to 'Destroy', lesson_content_path(@lesson, content),
             method: :delete,
             data: { confirm: 'Are you sure?' } %></td>
   </tr>

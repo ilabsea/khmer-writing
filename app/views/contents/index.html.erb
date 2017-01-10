@@ -5,6 +5,7 @@
   <li><%= link_to 'New method', new_writing_method_path %></li>
 
 </ul>
+<%= link_to('Back', 'javascript:history.go(-1);', :class => 'btn btn-large btn-primary') %>
 
 <h1> <%= @lesson.name %> </h1>
 <h3> <%= @method.name %> </h3>
@@ -12,7 +13,7 @@
 <h2>Contents</h2>
 
 <div style='float: right'>
-  <%= button_to('New Content', new_grade_lesson_writing_method_content_path(@grade, @lesson, @method), :method => :get, :class => 'btn btn-large btn-primary') %>
+  <%= link_to 'New content', new_lesson_content_path(@lesson, :writing_method_id => @method.id) %>
 </div>
 
 
@@ -21,6 +22,7 @@
     <th>Id</th>
     <th>Content</th>
     <th>Content in khmer</th>
+    <th>Clue</th>
     <th colspan="2"></th>
   </tr>
   <% @contents.each do |content| %>
