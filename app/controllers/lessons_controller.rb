@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  before_filter :authorize
 
   def new
     @grade = Grade.find(params[:grade_id])

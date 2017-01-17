@@ -1,4 +1,6 @@
 class GradesController < ApplicationController
+  before_filter :authorize
+
   def index
     @grades = Grade.all
   end

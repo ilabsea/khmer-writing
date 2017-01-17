@@ -21,4 +21,9 @@ Rails.application.routes.draw do
       get 'lessons/:lesson_id/writing_methods/:writing_method_id/contents' => 'contents#index'
     end
   end
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
 end

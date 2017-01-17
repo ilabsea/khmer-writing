@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110021537) do
+ActiveRecord::Schema.define(version: 20170117074432) do
 
   create_table "contents", force: true do |t|
     t.string   "content"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20170110021537) do
   end
 
   add_index "lessons", ["grade_id"], name: "index_lessons_on_grade_id"
+
+  create_table "users", force: true do |t|
+    t.string  "username"
+    t.string  "password_digest"
+    t.boolean "is_super_user"
+  end
 
   create_table "writing_methods", force: true do |t|
     t.string   "name"

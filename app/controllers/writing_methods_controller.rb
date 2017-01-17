@@ -1,4 +1,6 @@
 class WritingMethodsController < ApplicationController
+  before_filter :authorize
+
   def index
     @methods = WritingMethod.all
   end

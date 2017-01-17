@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="pull-right">
+    <% if current_user %>
+      Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
+    <% end %>
+  </div>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

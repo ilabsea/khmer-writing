@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+  before_filter :authorize
 
   def index
     @lesson = Lesson.find(params[:lesson_id])
