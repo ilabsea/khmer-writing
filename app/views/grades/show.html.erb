@@ -1,36 +1,26 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li><%= link_to 'View grade list', grades_path %></li>
-  <li><%= link_to 'New grade', new_grade_path %></li>
-  <li><%= link_to 'View method list', writing_methods_path %></li>
-  <li><%= link_to 'New method', new_writing_method_path %></li>
-
-</ul>
-
-<%= link_to('Back', 'javascript:history.go(-1);', :class => 'btn btn-large btn-primary') %>
-
-<h1> Show grade </h1>
-<table class="table table-bordered table-hover">
-  <tr>
-    <td><%= @grade.name %></td>
-    <td><%= link_to 'Edit', edit_grade_path(@grade) %></td>
-    <td><%= link_to 'Destroy', grade_path(@grade),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-</table>
+<div class="pull-right action">
+  <%= link_to 'Edit', edit_grade_path(@grade), class: 'btn btn-primary' %>
+  <%= link_to 'Destroy', grade_path(@grade),
+          method: :delete,
+          data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+</div>
 
 
-<h2>Lessons</h2>
-<table class="table table-bordered table-hover">
-  <tr>
-    <th>Code</th>
-    <th>Name</th>
-    <th>Khmer Numeric</th>
-    <th colspan="3"></th>
-  </tr>
-  <% @grade.lessons.each do |lesson| %>
-    <%= render lesson %>
-  <% end %>
-</table>
 
-<%= link_to 'New lesson', new_grade_lesson_path(@grade) %> </li>
+<div class="content">
+  <h2>Lessons</h2>
+  <div class="pull-right action">
+    <%= link_to 'New lesson', new_grade_lesson_path(@grade), class: 'btn btn-primary' %>
+  </div>
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Khmer Numeric</th>
+      <th colspan="3"></th>
+    </tr>
+    <% @lessons.each do |lesson| %>
+      <%= render lesson %>
+    <% end %>
+  </table>
+</div>

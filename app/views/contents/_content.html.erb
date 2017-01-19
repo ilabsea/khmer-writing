@@ -5,8 +5,8 @@
     <td><%= image_tag("#{content.image}", height: '32', width: '32') %></td>
     <td><%= audio_tag("#{content.audio}", controls: true) %></td>
     <td><%= image_tag("#{content.clue}", height: '32', width: '32') %></td>
-    <td><%= link_to 'Edit', edit_lesson_content_path(@lesson, content, writing_method_id: params[:writing_method_id]) %></td>
-    <td><%= link_to 'Destroy', lesson_content_path(@lesson, content),
+    <td><%= link_to 'កែសម្រួល', edit_lesson_content_path(@lesson, content, writing_method_id: params[:writing_method_id]) %></td>
+    <td><%= link_to 'លុប', lesson_content_path(@lesson, content),
             method: :delete,
             data: { confirm: 'Are you sure?' } %></td>
   </tr>

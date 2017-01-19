@@ -2,15 +2,20 @@ class GradesController < ApplicationController
   before_filter :authorize
 
   def index
+    render_grades_breadcrumb
     @grades = Grade.all
   end
 
   def new
+    render_grades_breadcrumb
+    add_breadcrumb "បន្ថែមថ្នាក់ថ្មី"
     @grade = Grade.new
   end
 
   def edit
     @grade = Grade.find(params[:id])
+    render_grade_breadcrumb(@grade)
+    add_breadcrumb "កែសម្រួលថ្នាក់"
   end
 
   def create
@@ -22,6 +27,7 @@ class GradesController < ApplicationController
 
   def show
     @grade = Grade.find(params[:id])
+    @lessons = @grade.lessons
   end
 
   def update

@@ -1,32 +1,22 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li><%= link_to 'View grade list', grades_path %></li>
-  <li><%= link_to 'New grade', new_grade_path %></li>
-  <li><%= link_to 'View method list', writing_methods_path %></li>
-  <li><%= link_to 'New method', new_writing_method_path %></li>
-
-</ul>
-<%= link_to('Back', 'javascript:history.go(-1);', :class => 'btn btn-large btn-primary') %>
-<h1> <%= @lesson.name %> </h1>
-<h3> <%= @method.name %> </h3>
-
-<h2>Contents</h2>
-
-<div style='float: right'>
-  <%= link_to 'New content', new_lesson_content_path(@lesson, :writing_method_id => @method.id) %>
+<div class="content">
+  <div class="head">
+    <h3>តារាងខ្លឹមសារ</h3>
+    <div class="pull-right action">
+      <%= link_to 'បន្ថែមខ្លឹមសារ', new_lesson_content_path(@lesson, :writing_method_id => @method.id), class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th>លេដសំគាល់</th>
+      <th>ខ្លឹមសារ</th>
+      <th>ខ្លឹមសារជាខ្មែរ</th>
+      <th>រូបភាព</th>
+      <th>សំលេង</th>
+      <th>រូបភាពគន្លឹះ</th>
+      <th colspan="2"></th>
+    </tr>
+    <% @contents.each do |content| %>
+      <%= render content %>
+    <% end %>
+  </table>
 </div>
-
-
-<table class="table table-bordered table-hover">
-  <tr>
-    <th>Id</th>
-    <th>Content</th>
-    <th>Content in khmer</th>
-    <th>Image</th>
-    <th>Audio</th>
-    <th>Clue</th>
-    <th colspan="2"></th>
-  </tr>
-  <% @contents.each do |content| %>
-    <%= render content %>
-  <% end %>
-</table>

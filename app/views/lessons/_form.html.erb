@@ -1,28 +1,29 @@
 <%= form_for [@grade, @lesson]  do |f| %>
   <div class="field form-group">
-    <%= f.label :name, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'ឈ្មោះមេរៀន', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :code, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'កូដសំគាល់', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.text_field :code, class: 'form-control' %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :khmer_numeric, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'លេខខ្មែរ', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.text_field :khmer_numeric, class: 'form-control' %>
     </div>
   </div>
 
   <div class="actions form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit %>
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit 'រក្សាទុក', class: 'btn btn-primary'%>
+      <%= f.submit "បោះបង់", :type => "reset", class: 'btn btn-default' %>
     </div>
   </div>
 <% end %>

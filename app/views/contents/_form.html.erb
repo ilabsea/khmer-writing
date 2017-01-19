@@ -10,50 +10,51 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :content, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'ខ្លឹមសារ', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.text_field :content, class: 'form-control' %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :content_in_khmer, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'ខ្លឹមសារជាខ្មែរ', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.text_field :content_in_khmer, class: 'form-control' %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :writing_method_id, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.select :writing_method_id, options_for_select(WritingMethod.all.collect{|m| [m.name,m.id]}, selected: @methodId),  class: 'form-control' %>
+    <%= f.label 'វិធីសាស្រ្ត', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :writing_method_id, options_for_select(WritingMethod.all.collect{|m| [m.name,m.id]}, selected: @methodId), {},  {class: 'form-control'} %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :image, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'រូបភាព', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.file_field :image %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :audio, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'សំលេង', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.file_field :audio %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label :clue, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
+    <%= f.label 'រូបភាពគន្លឹះ', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
       <%= f.file_field :clue %>
     </div>
   </div>
 
   <div class="actions form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit %>
+      <%= f.submit 'រក្សាទុក', class: 'btn btn-primary'%>
+      <%= f.submit "បោះបង់", :type => "reset", class: 'btn btn-default' %>
     </div>
   </div>
 <% end %>

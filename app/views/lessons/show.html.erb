@@ -1,28 +1,16 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li><%= link_to 'View grade list', grades_path %></li>
-  <li><%= link_to 'New grade', new_grade_path %></li>
-  <li><%= link_to 'View method list', writing_methods_path %></li>
-  <li><%= link_to 'New method', new_writing_method_path %></li>
+<div class="content">
+  <div class="head">
+    <h3>តារាងវិធីសាស្រ្ត</h3>
+    <div class="pull-right action">
+      <%= link_to 'បន្ថែមវិធីសាស្រ្ត', new_writing_method_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <div style="padding-top:15px">
+    <ul>
+      <% @methods.each do |method| %>
+        <li><%= link_to method.name, lesson_contents_path(@lesson, :writing_method_id => method.id) %></li>
+      <% end %>
+    </ul>
+  </div>
 
-</ul>
-
-<%= link_to('Back', 'javascript:history.go(-1);', :class => 'btn btn-large btn-primary') %>
-
-<h1> Show Lesson </h1>
-<table class="table table-bordered table-hover">
-  <tr>
-    <td><%= @lesson.name %></td>
-    <td><%= link_to 'Edit', edit_grade_lesson_path(@grade, @lesson) %></td>
-    <td><%= link_to 'Destroy', grade_lesson_path(@grade, @lesson),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-</table>
-
-
-<h2>Contents</h2>
-<ul>
-  <% @methods.each do |method| %>
-    <li><%= link_to method.name, lesson_contents_path(@lesson, :writing_method_id => method.id) %></li>
-  <% end %>
-</ul>
+</div>

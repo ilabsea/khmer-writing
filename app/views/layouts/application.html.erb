@@ -7,13 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="pull-right">
-    <% if current_user %>
-      Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
-    <% end %>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/grades">កម្មវិធីសរសេរខ្មែរ</a>
+      </div>
+
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'ថ្នាក់', grades_path %></li>
+          <li><%= link_to 'វិធីសាស្រ្ត', writing_methods_path %></li>
+        </ul>
+
+
+        <% if current_user %>
+          <ul class="nav navbar-nav navbar-right">
+            <li style="display:block; padding: 15px 0px">
+              <span>អ្នកចូលប្រើប្រាស់ជា <%= current_user.username %> |</span>
+            </li>
+            <li><%= link_to "ចាកចេញ", '/logout' %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <%= render_breadcrumbs %>
+    </div>
+    <%= yield %>
   </div>
-
-  <%= yield %>
-
 </body>
 </html>

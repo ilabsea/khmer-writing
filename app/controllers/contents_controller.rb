@@ -5,6 +5,7 @@ class ContentsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @method = WritingMethod.find(params[:writing_method_id])
     @contents = @lesson.contents.where(:writing_method_id => params[:writing_method_id])
+    render_contents_breadcrumb(@lesson, @method)
   end
 
   def new
@@ -12,6 +13,8 @@ class ContentsController < ApplicationController
     @methods = WritingMethod.all
     @methodId = params[:writing_method_id]
     @content = @lesson.contents.new
+    render_contents_breadcrumb(@lesson, WritingMethod.find(@methodId))
+    add_breadcrumb 'បន្ថែមខ្លឹមសារថ្មី'
   end
 
   def create
@@ -29,6 +32,8 @@ class ContentsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @methodId = params[:writing_method_id]
     @content = @lesson.contents.find(params[:id])
+    render_contents_breadcrumb(@lesson, @content.writing_method)
+    add_breadcrumb 'កែសម្រួលខ្លឹមសារ'
   end
 
   def update

@@ -2,3 +2,14 @@
   padding-bottom: 20px;
   margin-top: 20px
 }
+
+.action{
+  padding-bottom: 15px;
+}
+.content{
+  clear: both;
+}
+
+.head h3{
+  display: inline
+}
