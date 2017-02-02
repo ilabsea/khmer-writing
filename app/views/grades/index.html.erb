@@ -2,9 +2,6 @@
 
   <div class="head">
     <h3>តារាងថ្នាក់</h3>
-    <div class="pull-right action">
-      <%= link_to 'បន្ថែមថ្នាក់ថ្មី', new_grade_path, class: 'btn btn-primary' %>
-    </div>
   </div>
   <table class="table table-bordered table-hover">
     <tr>
@@ -19,9 +16,6 @@
         <td><%= grade.code %></td>
         <td><%= link_to 'បង្ហាញ', grade_lessons_path(grade) %></td>
         <td><%= link_to 'កែសម្រួល', edit_grade_path(grade) %></td>
-        <td><%= link_to 'លុប', grade_path(grade),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
       </tr>
       </tr>
     <% end %>

@@ -26,30 +26,11 @@
   <div class="field form-group">
     <%= f.label 'វិធីសាស្រ្ត', class: 'col-sm-2 control-label' %>
     <div class="col-sm-6">
-      <%= f.select :writing_method_id, options_for_select(WritingMethod.all.collect{|m| [m.name,m.id]}, selected: @methodId), {},  {class: 'form-control'} %>
+      <%= f.select :writing_method_id, options_for_select(WritingMethod.all.collect{|m| [m.name,m.id]}, selected: @methodId), {},  {class: 'form-control', disabled: true} %>
     </div>
   </div>
 
-  <div class="field form-group">
-    <%= f.label 'រូបភាព', class: 'col-sm-2 control-label' %>
-    <div class="col-sm-6">
-      <%= f.file_field :image %>
-    </div>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label 'សំលេង', class: 'col-sm-2 control-label' %>
-    <div class="col-sm-6">
-      <%= f.file_field :audio %>
-    </div>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label 'រូបភាពគន្លឹះ', class: 'col-sm-2 control-label' %>
-    <div class="col-sm-6">
-      <%= f.file_field :clue %>
-    </div>
-  </div>
+  <%= render content_elements(@methodId), f: f %>
 
   <div class="actions form-group">
     <div class="col-sm-offset-2 col-sm-10">

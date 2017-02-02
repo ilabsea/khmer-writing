@@ -1,4 +1,4 @@
-class ClueUploader < CarrierWave::Uploader::Base
+class ImageClueUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

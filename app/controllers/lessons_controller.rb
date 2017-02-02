@@ -56,6 +56,6 @@ class LessonsController < ApplicationController
 
   private
     def lesson_params
-      params.require(:lesson).permit(:name, :code, :khmer_numeric)
+      params.require(:lesson).permit(:name, :khmer_numeric)
     end
 end

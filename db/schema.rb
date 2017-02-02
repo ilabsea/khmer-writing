@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117074432) do
+ActiveRecord::Schema.define(version: 20170202014609) do
 
   create_table "contents", force: true do |t|
     t.string   "content"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20170117074432) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "content_in_khmer"
-    t.string   "clue"
+    t.string   "image_clue"
     t.string   "audio"
     t.string   "image"
+    t.string   "image_answer"
   end
 
   add_index "contents", ["lesson_id"], name: "index_contents_on_lesson_id"
@@ -40,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170117074432) do
     t.integer  "grade_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "code"
     t.string   "khmer_numeric"
   end
 

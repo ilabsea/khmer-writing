@@ -1,10 +1,10 @@
 <tr>
-    <td><%= content.id %></td>
     <td><%= content.content %></td>
     <td><%= content.content_in_khmer %></td>
-    <td><%= image_tag("#{content.image}", height: '32', width: '32') %></td>
-    <td><%= audio_tag("#{content.audio}", controls: true) %></td>
-    <td><%= image_tag("#{content.clue}", height: '32', width: '32') %></td>
+    <td><%= image_tag("#{content.image}", height: '32', width: '32') if content.image.url %></td>
+    <td><%= image_tag("#{content.image_clue}", height: '32', width: '32') if content.image_clue.url %></td>
+    <td><%= image_tag("#{content.image_answer}", height: '32', width: '32') if content.image_answer.url %></td>
+    <td><%= audio_tag("#{content.audio}", controls: true) if content.audio.url %></td>
     <td><%= link_to 'កែសម្រួល', edit_lesson_content_path(@lesson, content, writing_method_id: params[:writing_method_id]) %></td>
     <td><%= link_to 'លុប', lesson_content_path(@lesson, content),
             method: :delete,

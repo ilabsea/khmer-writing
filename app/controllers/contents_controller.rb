@@ -61,7 +61,8 @@ class ContentsController < ApplicationController
 
   def upload_file
     begin
-      ClueUploader.new.store!(params[:content][:clue]) if params[:content][:clue].present?
+      ImageClueUploader.new.store!(params[:content][:image_clue]) if params[:content][:image_clue].present?
+      ImageAnswerUploader.new.store!(params[:content][:image_answer]) if params[:content][:image_answer].present?
       ImageUploader.new.store!(params[:content][:image]) if params[:content][:image].present?
       AudioUploader.new.store!(params[:content][:audio]) if params[:content][:audio].present?
     rescue Exception => e

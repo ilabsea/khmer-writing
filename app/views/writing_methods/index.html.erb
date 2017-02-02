@@ -1,14 +1,10 @@
 <div class="content">
   <h3>តារាងវិធីសាស្រ្ត</h3>
-  <div class="pull-right action">
-    <%= link_to 'បន្ថែមវិធីសាស្រ្តថ្មី', new_writing_method_path, class: 'btn btn-primary' %>
-  </div>
 </div>
 
 <table class="table table-bordered table-hover">
   <tr>
     <th>ឈ្មោះវិធីសាស្រ្ត</th>
-    <th>កូដសំគាល់</th>
     <th>រូបតំណាង</th>
     <th colspan="3"></th>
   </tr>
@@ -16,12 +12,8 @@
   <% @methods.each do |method| %>
     <tr>
       <td><%= method.name %></td>
-      <td><%= method.code %></td>
       <td><%= method.icon %></td>
       <td><%= link_to 'កែសម្រួល', edit_writing_method_path(method) %></td>
-      <td><%= link_to 'លុប', writing_method_path(method),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
     </tr>
     </tr>
   <% end %>
