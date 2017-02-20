@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   add_breadcrumb "ទំពរ័ដើម", :root_path
 
+  before_filter :set_request_header
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -53,6 +55,10 @@ class ApplicationController < ActionController::Base
 
   def record_not_found(error)
     render :json => {:error => error.message}, :status => :not_found
+  end
+
+  def set_request_header
+    headers['Access-Control-Allow-Origin'] = '*'
   end
 
 end
