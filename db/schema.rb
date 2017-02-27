@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202014609) do
+ActiveRecord::Schema.define(version: 20170221101644) do
 
   create_table "contents", force: true do |t|
     t.string   "content"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170202014609) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "khmer_numeric"
+    t.string   "background"
   end
 
   add_index "lessons", ["grade_id"], name: "index_lessons_on_grade_id"

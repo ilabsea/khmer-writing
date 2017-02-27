@@ -5,4 +5,5 @@ class Lesson < ActiveRecord::Base
 
   has_many :writing_methods, through: :contents
   accepts_nested_attributes_for :contents
+  mount_uploader :image_background, ImageUploader
 end

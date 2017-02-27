@@ -10,23 +10,23 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label 'ខ្លឹមសារ', class: 'col-sm-2 control-label' %>
+    <%= f.label 'ខ្លឹមសារ', class: 'col-sm-3 control-label' %>
     <div class="col-sm-6">
       <%= f.text_field :content, class: 'form-control' %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label 'ខ្លឹមសារជាខ្មែរ', class: 'col-sm-2 control-label' %>
+    <%= f.label 'ខ្លឹមសារជាខ្មែរ', class: 'col-sm-3 control-label' %>
     <div class="col-sm-6">
       <%= f.text_field :content_in_khmer, class: 'form-control' %>
     </div>
   </div>
 
   <div class="field form-group">
-    <%= f.label 'វិធីសាស្រ្ត', class: 'col-sm-2 control-label' %>
+    <%= f.label 'វិធីសាស្រ្ត', class: 'col-sm-3 control-label' %>
     <div class="col-sm-6">
-      <%= f.select :writing_method_id, options_for_select(WritingMethod.all.collect{|m| [m.name,m.id]}, selected: @methodId), {},  {class: 'form-control', disabled: true} %>
+      <%= f.select :writing_method_id, options_for_select(WritingMethod.all.collect{|m| [m.name,m.id]}, selected: @methodId), {},  {class: 'form-control', readonly: true} %>
     </div>
   </div>
 

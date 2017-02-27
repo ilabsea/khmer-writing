@@ -13,6 +13,13 @@
     </div>
   </div>
 
+  <div class="field form-group">
+    <%= f.label 'លេខរូបភាព', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :background, options_for_select([["grid", 1], ["table", 2]], selected: 1), {},  {class: 'form-control'} %>
+    </div>
+  </div>
+
   <div class="actions form-group">
     <div class="col-sm-offset-2 col-sm-6">
       <%= f.submit 'រក្សាទុក', class: 'btn btn-primary'%>

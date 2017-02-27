@@ -9,9 +9,11 @@ class ContentsController < ApplicationController
   end
 
   def new
+    p 'params : ', params
     @lesson = Lesson.find(params[:lesson_id])
     @methods = WritingMethod.all
     @methodId = params[:writing_method_id]
+
     @content = @lesson.contents.new
     render_contents_breadcrumb(@lesson, WritingMethod.find(@methodId))
     add_breadcrumb 'បន្ថែមខ្លឹមសារថ្មី'
@@ -24,6 +26,7 @@ class ContentsController < ApplicationController
     if @content.save
       redirect_to lesson_contents_path(@lesson , :writing_method_id => params[:content][:writing_method_id])
     else
+      @methodId = params[:content][:writing_method_id]
       render :new
     end
   end
@@ -56,7 +59,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:content, :writing_method_id, :content_in_khmer , :clue, :image, :audio)
+    params.require(:content).permit(:content, :writing_method_id, :content_in_khmer , :image_clue, :image, :audio, :image_answer)
   end
 
   def upload_file
