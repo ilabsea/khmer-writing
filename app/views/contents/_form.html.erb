@@ -8,7 +8,7 @@
       </ul>
     </div>
   <% end %>
-
+  <%= hidden_field_tag :writing_method_id, @methodId %>
   <div class="field form-group">
     <%= f.label 'ខ្លឹមសារ', class: 'col-sm-3 control-label' %>
     <div class="col-sm-6">
@@ -33,9 +33,9 @@
   <%= render content_elements(@methodId), f: f %>
 
   <div class="actions form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit 'រក្សាទុក', class: 'btn btn-primary'%>
-      <%= f.submit "បោះបង់", :type => "reset", class: 'btn btn-default' %>
+      <%=link_to 'បោះបង់', lesson_contents_path(writing_method_id: @methodId), data: { confirm: 'តើអ្នកប្រាកដជាចង់ចាកចេញមែនរឺទេ?' }, class: 'btn btn-default' %>
     </div>
   </div>
 <% end %>

@@ -1,32 +1,31 @@
 class ContentsController < ApplicationController
   before_filter :authorize
+  before_filter :render_breadcrumb
+
+  add_breadcrumb 'បន្ថែមខ្លឹមសារថ្មី', :lesson_contents_path, only: [:new, :create]
+  add_breadcrumb 'កែសម្រួលខ្លឹមសារ', :edit_lesson_content_path, only: [:edit, :update]
 
   def index
     @lesson = Lesson.find(params[:lesson_id])
     @method = WritingMethod.find(params[:writing_method_id])
     @contents = @lesson.contents.where(:writing_method_id => params[:writing_method_id])
-    render_contents_breadcrumb(@lesson, @method)
   end
 
   def new
-    p 'params : ', params
     @lesson = Lesson.find(params[:lesson_id])
     @methods = WritingMethod.all
     @methodId = params[:writing_method_id]
-
     @content = @lesson.contents.new
-    render_contents_breadcrumb(@lesson, WritingMethod.find(@methodId))
-    add_breadcrumb 'បន្ថែមខ្លឹមសារថ្មី'
   end
 
   def create
     @lesson = Lesson.find(params[:lesson_id])
     @content = @lesson.contents.new(content_params)
+    @methodId = params[:content][:writing_method_id]
     upload_file
     if @content.save
-      redirect_to lesson_contents_path(@lesson , :writing_method_id => params[:content][:writing_method_id])
+      redirect_to lesson_contents_path(@lesson , :writing_method_id => @methodId)
     else
-      @methodId = params[:content][:writing_method_id]
       render :new
     end
   end
@@ -35,17 +34,17 @@ class ContentsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @methodId = params[:writing_method_id]
     @content = @lesson.contents.find(params[:id])
-    render_contents_breadcrumb(@lesson, @content.writing_method)
-    add_breadcrumb 'កែសម្រួលខ្លឹមសារ'
   end
 
   def update
     @lesson = Lesson.find(params[:lesson_id])
     @content = @lesson.contents.find(params[:id])
+
     upload_file
     if @content.update(content_params)
       redirect_to lesson_contents_path(@lesson, :writing_method_id => params[:content][:writing_method_id])
     else
+      @methodId = params[:content][:writing_method_id]
       render :edit
     end
   end
@@ -70,6 +69,12 @@ class ContentsController < ApplicationController
       AudioUploader.new.store!(params[:content][:audio]) if params[:content][:audio].present?
     rescue Exception => e
     end
+  end
+
+  def render_breadcrumb
+    lesson = Lesson.find(params[:lesson_id])
+    method = WritingMethod.find(params[:writing_method_id])
+    render_contents_breadcrumb(lesson, method)
   end
 
 end

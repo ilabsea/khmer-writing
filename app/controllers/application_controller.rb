@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def render_writing_method_breadcrumb(method)
     render_writing_methods_breadcrumb
-    add_breadcrumb method.name#, writing_method_path(method)
+    add_breadcrumb method.name
   end
 
   def render_writing_methods_breadcrumb
