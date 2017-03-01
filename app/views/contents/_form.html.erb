@@ -1,3 +1,40 @@
+<script type="text/javascript">
+  $(function(){
+    var $imageElement = document.getElementById("image");
+    var $imageClueElement = document.getElementById("imageClue");
+    var $imageAnswerElement = document.getElementById("imageAnswer");
+    var $image = document.getElementById("displayImage");
+    var $imageClue = document.getElementById("displayImageClue");
+    var $imageAnswer = document.getElementById("displayImageAnswer");
+
+    function showImage(imageParam, element){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          imageParam.src = e.target.result;
+      };
+      reader.readAsDataURL(element.files[0]);
+    }
+
+    if($imageElement){
+      $imageElement.onchange = function () {
+        showImage($image, this);
+      };
+    }
+
+    if($imageClueElement){
+      $imageClueElement.onchange = function(){
+        showImage($imageClue, this);
+      }
+    }
+
+    if($imageAnswerElement){
+      $imageAnswerElement.onchange = function(){
+        showImage($imageAnswer, this);
+      }
+    }
+  });
+</script>
+
 <%= form_for [@lesson, @content]  do |f| %>
   <% if @content.errors.any? %>
     <div class="alert alert-danger">
@@ -31,6 +68,7 @@
   </div>
 
   <%= render content_elements(@methodId), f: f %>
+  <br>
 
   <div class="actions form-group">
     <div class="col-sm-offset-3 col-sm-9">

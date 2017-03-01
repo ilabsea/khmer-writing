@@ -34,6 +34,9 @@ class ContentsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @methodId = params[:writing_method_id]
     @content = @lesson.contents.find(params[:id])
+    @image_url = ENV['host'] + ENV['image_path'] + @content[:image] if @content[:image].present?
+    @image_clue_url = ENV['host'] + ENV['clue_path'] + @content[:image_clue] if @content[:image_clue].present?
+    @image_answer_url = ENV['host'] + ENV['answer_path'] + @content[:image_answer] if @content[:image_answer].present?
   end
 
   def update
@@ -75,6 +78,10 @@ class ContentsController < ApplicationController
     lesson = Lesson.find(params[:lesson_id])
     method = WritingMethod.find(params[:writing_method_id])
     render_contents_breadcrumb(lesson, method)
+  end
+
+  def image_path
+
   end
 
 end

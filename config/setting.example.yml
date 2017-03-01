@@ -1,0 +1,15 @@
+default: &default
+  host: "http://localhost:3000"
+  image_path: "/uploads/image/"
+  clue_path: "/uploads/clue/"
+  answer_path: "/uploads/answer/"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+  SECRET_KEY_BASE: ''
