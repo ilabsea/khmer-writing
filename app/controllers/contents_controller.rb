@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_filter :authorize
-  before_filter :render_breadcrumb
+  before_filter :render_breadcrumb, except: [:destroy]
 
   add_breadcrumb 'បន្ថែមខ្លឹមសារថ្មី', :lesson_contents_path, only: [:new, :create]
   add_breadcrumb 'កែសម្រួលខ្លឹមសារ', :edit_lesson_content_path, only: [:edit, :update]
@@ -78,10 +78,6 @@ class ContentsController < ApplicationController
     lesson = Lesson.find(params[:lesson_id])
     method = WritingMethod.find(params[:writing_method_id])
     render_contents_breadcrumb(lesson, method)
-  end
-
-  def image_path
-
   end
 
 end
