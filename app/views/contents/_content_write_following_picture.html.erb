@@ -2,7 +2,9 @@
   <%= f.label 'រូបភាព (គួរតែ 250px * 300px)', class: 'col-sm-3 control-label' %>
   <div class="col-sm-6">
     <%= f.file_field :image , :id => 'image'%>
-    <%= image_tag @image_url, :id => 'displayImage', :style => 'width: 20%;' %>
+    <% if @image_url %>
+      <%= image_tag @image_url, :id => 'displayImage', :style => 'width: 20%;' %>
+    <% end %>
   </div>
 </div>
 
@@ -10,7 +12,9 @@
   <%= f.label 'រូបភាពគន្លឹះ (គួរតែ 450px * 350px)', class: 'col-sm-3 control-label' %>
   <div class="col-sm-6">
     <%= f.file_field :image_clue, :id => 'imageClue' %>
-    <%= image_tag @image_clue_url, :id => 'displayImageClue', :style => 'width: 20%;' %>
+    <% if @image_clue_url %>
+      <%= image_tag @image_clue_url, :id => 'displayImageClue', :style => 'width: 20%;' %>
+    <% end %>
   </div>
 </div>
 
@@ -18,6 +22,8 @@
   <%= f.label 'រូបភាពចំលើយ (គួរតែ 250px * 300px)', class: 'col-sm-3 control-label' %>
   <div class="col-sm-6">
     <%= f.file_field :image_answer , :id => 'imageAnswer'%>
-    <%= image_tag @image_answer_url, :id => 'displayImageAnswer', :style => 'width: 20%;' %>
+    <% if @image_answer_url %>
+      <%= image_tag @image_answer_url, :id => 'displayImageAnswer', :style => 'width: 20%;' %>
+    <% end %>
   </div>
 </div>

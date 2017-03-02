@@ -3,6 +3,7 @@ default: &default
   image_path: "/uploads/image/"
   clue_path: "/uploads/clue/"
   answer_path: "/uploads/answer/"
+  audio_path: "/uploads/audio/"
 
 development:
   <<: *default

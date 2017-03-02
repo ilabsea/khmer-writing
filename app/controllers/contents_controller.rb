@@ -37,6 +37,7 @@ class ContentsController < ApplicationController
     @image_url = ENV['host'] + ENV['image_path'] + @content[:image] if @content[:image].present?
     @image_clue_url = ENV['host'] + ENV['clue_path'] + @content[:image_clue] if @content[:image_clue].present?
     @image_answer_url = ENV['host'] + ENV['answer_path'] + @content[:image_answer] if @content[:image_answer].present?
+    @audio_url = ENV['host'] + ENV['audio_path'] + @content[:audio] if @content[:audio].present?
   end
 
   def update

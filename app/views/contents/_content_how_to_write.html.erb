@@ -2,6 +2,8 @@
   <%= f.label 'រូបភាព (គួរតែ 250px * 300px)', class: 'col-sm-3 control-label' %>
   <div class="col-sm-6">
     <%= f.file_field :image , :id => "image"%>
-    <%= image_tag @image_url, :id => 'displayImage', :style => 'width: 20%;' %>
+    <% if @image_url %>
+      <%= image_tag @image_url, :id => 'displayImage', :style => 'width: 20%;' %>
+    <% end %>
   </div>
 </div>
