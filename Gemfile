@@ -17,3 +17,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'spring',        group: :development
 gem 'breadcrumbs_on_rails'
+
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger' #using gem passenger 4.0.58
+end
