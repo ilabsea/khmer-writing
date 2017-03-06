@@ -17,7 +17,7 @@ class LessonsController < ApplicationController
   def create
     @grade = Grade.find(params[:grade_id])
     @lesson = @grade.lessons.create(lesson_params)
-    redirect_to grade_path(@grade)
+    redirect_to grade_lessons_path(@grade)
   end
 
   def show
@@ -40,7 +40,7 @@ class LessonsController < ApplicationController
     @lesson = @grade.lessons.find(params[:id])
 
     if @lesson.update(lesson_params)
-      redirect_to grade_path(@grade)
+      redirect_to grade_lessons_path(@grade)
     else
       render 'edit'
     end
@@ -51,7 +51,7 @@ class LessonsController < ApplicationController
     @grade = Grade.find(params[:grade_id])
     @lesson = @grade.lessons.find(params[:id])
     @lesson.destroy
-    redirect_to grade_path(@grade)
+    redirect_to grade_lessons_path(@grade)
   end
 
   private
