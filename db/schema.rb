@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170221101644) do
     t.string   "image_answer"
   end
 
-  add_index "contents", ["lesson_id"], name: "index_contents_on_lesson_id"
-  add_index "contents", ["writing_method_id"], name: "index_contents_on_writing_method_id"
+  add_index "contents", ["lesson_id"], name: "index_contents_on_lesson_id", using: :btree
+  add_index "contents", ["writing_method_id"], name: "index_contents_on_writing_method_id", using: :btree
 
   create_table "grades", force: true do |t|
     t.string   "name"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170221101644) do
     t.string   "background"
   end
 
-  add_index "lessons", ["grade_id"], name: "index_lessons_on_grade_id"
+  add_index "lessons", ["grade_id"], name: "index_lessons_on_grade_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string  "username"

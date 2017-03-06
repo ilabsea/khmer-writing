@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.13'
-gem 'sqlite3'
+gem 'mysql2', '~> 0.3.13'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
