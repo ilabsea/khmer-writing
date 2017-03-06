@@ -4,7 +4,7 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-server_address = "188.166.226.70"
+server_address = "SERVER_ADDRESS"
 
 role :app, "ilab@#{server_address}"
 role :web, "ilab@#{server_address}"
