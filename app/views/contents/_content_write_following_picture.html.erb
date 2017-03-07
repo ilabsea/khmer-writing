@@ -3,7 +3,7 @@
   <div class="col-sm-6">
     <%= f.file_field :image , :id => 'image'%>
     <% if @image_url %>
-      <%= image_tag @image_url, :id => 'displayImage', :style => 'width: 20%;' %>
+      <%= image_tag @image_url, :id => 'displayImage' %>
     <% end %>
   </div>
 </div>
@@ -13,7 +13,7 @@
   <div class="col-sm-6">
     <%= f.file_field :image_clue, :id => 'imageClue' %>
     <% if @image_clue_url %>
-      <%= image_tag @image_clue_url, :id => 'displayImageClue', :style => 'width: 20%;' %>
+      <%= image_tag @image_clue_url, :id => 'displayImageClue'%>
     <% end %>
   </div>
 </div>
@@ -23,7 +23,7 @@
   <div class="col-sm-6">
     <%= f.file_field :image_answer , :id => 'imageAnswer'%>
     <% if @image_answer_url %>
-      <%= image_tag @image_answer_url, :id => 'displayImageAnswer', :style => 'width: 20%;' %>
+      <%= image_tag @image_answer_url, :id => 'displayImageAnswer' %>
     <% end %>
   </div>
 </div>

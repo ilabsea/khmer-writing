@@ -3,7 +3,7 @@
   <div class="col-sm-6">
     <%= f.file_field :image, :id => 'image' %>
     <% if @image_url %>
-      <%= image_tag @image_url, :id => 'displayImage', :style => 'width: 20%;' %>
+      <%= image_tag @image_url, :id => 'displayImage'%>
     <% end %>
   </div>
 </div>
