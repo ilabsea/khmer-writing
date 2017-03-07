@@ -34,7 +34,7 @@ class WritingMethodsController < ApplicationController
   def update
     @method = WritingMethod.find(params[:id])
     if @method.update(methods_params)
-      redirect_to @method
+      redirect_to writing_methods_path
     else
       render 'edit'
     end
