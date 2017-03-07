@@ -45,3 +45,4 @@ end
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/setting.yml', 'config/database.yml')
+set :linked_dirs, fetch(:linked_dirs, []).push('public/uploads')
